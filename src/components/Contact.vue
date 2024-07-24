@@ -30,6 +30,7 @@
 
 <script setup>
 import { useRouter } from "vue-router";
+import { useContacts } from "@/stores/contacts";
 import { computed } from "vue";
 
 const router = useRouter();
