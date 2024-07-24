@@ -27,7 +27,8 @@
 import { computed, watch, ref } from "vue";
 import { useContacts } from "@/stores/contacts";
 import Contacts from "@/components/Contacts.vue";
-import Header form '@/components/Header.vue'
+import Header from '@/components/Header.vue';
+import Navbar from '@/components/Navbar.vue'
 
 const contacts = ref(useContacts().contacts);
 
