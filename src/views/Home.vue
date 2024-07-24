@@ -15,7 +15,16 @@
         </span>
       </template>
     </Header>
+    <Searchbar v-on:search="searchAction" />
+
+    <section>
+      <Contacts :contacts="contacts" />
+    </section>
   </main>
 </template>
 
-<script></script>
+<script>
+    import Contacts  from '@/components/Contacts.vue'
+
+    const contacts = ref(useContacts().contacts)
+</script>
