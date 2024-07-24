@@ -27,6 +27,7 @@
 import { computed, watch, ref } from "vue";
 import { useContacts } from "@/stores/contacts";
 import Contacts from "@/components/Contacts.vue";
+import Header form '@/components/Header.vue'
 
 const contacts = ref(useContacts().contacts);
 
