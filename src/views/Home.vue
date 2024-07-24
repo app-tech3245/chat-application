@@ -24,7 +24,16 @@
 </template>
 
 <script>
-    import Contacts  from '@/components/Contacts.vue'
+import { computed, watch, ref } from "vue";
+import { useContacts } from "@/stores/contacts";
+import Contacts from "@/components/Contacts.vue";
 
-    const contacts = ref(useContacts().contacts)
+const contacts = ref(useContacts().contacts);
+
+const searchAction = () => {
+  const currentKeyword = computed(() => useContacts().currentKeyword);
+  contacts.value = useContacts().contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(currentKeyword.value.toLowerCase())
+  );
+};
 </script>

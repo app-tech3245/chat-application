@@ -1,17 +1,16 @@
 import { defineStore } from "pinia";
 
-export default useContacts = defineStore("contacts", {
+export const useContacts = defineStore("contacts", {
   actions: {
     setLastMessage(payload, id) {
       this.contacts.forEach((contact) => {
         if (contact.id == id) contact.lastMessage = payload;
       });
     },
-    setCurrentkeyword(payload) {
+    setCurrentKeyword(payload) {
       this.currentKeyword = payload;
     },
   },
-
   state: () => {
     return {
       currentKeyword: "",
