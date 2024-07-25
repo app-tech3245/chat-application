@@ -24,4 +24,6 @@
 <script setup>
 import { ref } from "vue";
 import menu from "@/menu.js";
+
+const active = ref('Chats')
 </script>
