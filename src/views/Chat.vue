@@ -37,6 +37,8 @@
 </template>
 
 <script setup>
+import RoomChat from '@/components/RoomChat.vue'
+
 const router = useRouter();
 const route = useRoute();
 const container = ref(null);
