@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main ref="container" class="py-12">
     <Header>
       <template v-slot:start>
         <div class="flex gap-3 items-center">
@@ -33,16 +33,42 @@
         </div>
       </template>
     </Header>
+
     <RoomChat />
+
+    <ChatAction v-on:newChat="scrollToBottom" />
   </main>
 </template>
 
 <script setup>
+import { useRoute, useRouter } from "vue-router";
+import { computed, ref, onMounted } from "vue";
+import { useContacts } from "@/stores/contacts";
+import Header from "@/components/Header.vue";
+import ChatAction from "@/components/ChatAction.vue";
 import RoomChat from "@/components/RoomChat.vue";
 
 const router = useRouter();
 const route = useRoute();
 const container = ref(null);
+const state = useContacts();
 
+const paramsId = computed(() => route.params.id);
 const profile = state.contacts.filter((e) => e.id == paramsId.value);
+
+const back = () => {
+  setTimeout(() => {
+    router.go(-1);
+  }, 500);
+};
+
+onMounted(() => scrollToBottom());
+
+const scrollToBottom = () => {
+  let el = container.value;
+  el.scrollIntoView(false, {
+    behavior: "smooth",
+    block: "end",
+  });
+};
 </script>
