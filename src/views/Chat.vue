@@ -33,11 +33,12 @@
         </div>
       </template>
     </Header>
+    <RoomChat />
   </main>
 </template>
 
 <script setup>
-import RoomChat from '@/components/RoomChat.vue'
+import RoomChat from "@/components/RoomChat.vue";
 
 const router = useRouter();
 const route = useRoute();
